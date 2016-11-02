@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_head.html") %>
+  </head>
+
+  <body is="responsive-body">
+
+    <div class="outer">
+      <div class="hed">This is a heading</div>
+      <div class="chatter">This is a deck. This includes information about the chart. It will be written later.
+
+      <div class="sub-deck">Hover over or click on the links in the chart below to follow the money.</div></div>
+
+      <div id="node-graph"></div>
+
+      <div id="sankey-graph"></div>
+
+      <div class="interactive-credit">
+        <div class="entry">Emma O'Neill  &bull; <a href="mailto:eoneill@sfchronicle.com">eoneill@sfchronicle.com</a>   &bull; <a href = "https://twitter.com/emmaruthoneill" target="_blank">@emmaruthoneill</a></div>
+        <div class="entry">Joaquin Palomino  &bull; <a href="mailto:jpalomino@sfchronicle.com">jpalomino@sfchronicle.com</a>   &bull; <a href = "https://twitter.com/JoaquinPalomino" target="_blank">@JoaquinPalomino</a></div>
+      </div>
+      <div class="interactive-source">Source: <a href="http://cal-access.ss.ca.gov/Campaign/" target="_blank">California Secretary of State</a></div>
+      <div class="interactive-source padded">Data are from Oct. 21, 2016. The California Charter Schools Association also includes spending by its sponsored committee, the Parent Teacher Alliance.</div>
+
+    </div>
+
+    <script>
+      var campaignData = <%= JSON.stringify(csv.campaign1102) %>;
+      var sankeyData = <%= JSON.stringify(csv.ProgressSFData) %>;
+      console.log(sankeyData);
+    </script>
+    <script src="http://projects.sfchronicle.com/shared/js/responsive-child.js"></script>
+
+    <script src="app.js" async></script>
+    <%= t.include("partials/_helloSFC.html") %>
+
+  </body>
+</html>
